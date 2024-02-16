@@ -1,0 +1,52 @@
+<div class="form-div">
+    <h1>Assets Page</h1>
+    <form #assets="ngForm" (ngSubmit)="assign(assets.value)">
+
+
+        <div>
+            <mat-form-field class="input-div">
+                <mat-label>Enter Email</mat-label>
+                <input matInput type="email" name="email" placeholder="Ex. emp@metapointer.com" ngModel pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" required email>
+                <mat-error *ngIf="email.errors?.['required']">Email field is required</mat-error>
+                <mat-error *ngIf="email.errors?.['pattern']">Enter valid email address</mat-error>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="input-div">
+            <mat-label>Assets</mat-label>
+            <mat-select name="assets" ngModel required #assets="ngModel">
+                <mat-option value="Mouse">Mouse</mat-option>
+                <mat-option value="Key-Board">Key-Board</mat-option>
+                <mat-option value="Laptop">Laptop</mat-option>
+            </mat-select>
+            <mat-error *ngIf="assets.errors?.['required']"> Assets is required</mat-error>
+        </mat-form-field>
+<!--             
+        <label for="Email">Email:</label>
+        <input type="email" ngModel name="email" required/> -->
+        <!-- <select name="assets" ngModel required>
+            <option value="Mouse">Mouse</option>
+            <option value="Key-Board">Key-Board</option>
+            <option value="Laptop">Laptop</option>
+        </select> -->
+ 
+        <div>
+            <mat-form-field class="input-div">
+                <mat-label>Enter Assets Id</mat-label>
+                <input matInput type="text" name="assetsid" placeholder="ASMO979450SG" ngModel  #assetsid="ngModel" required>
+                <mat-error *ngIf="assetsid.errors?.['required']">AssetsId is required</mat-error>
+                
+            </mat-form-field>
+        </div>
+<!-- 
+        <label for="assetsid">Assets Id:</label>
+        <input type="text" name="assetsid" ngModel required/> -->
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" [disabled]="assets.invalid">Assign</button>
+        </div>
+      
+    </form>
+
+
+
+</div>

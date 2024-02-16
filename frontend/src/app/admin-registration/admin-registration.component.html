@@ -1,0 +1,51 @@
+<div class="form-div">
+    <h1>Admin SignUp</h1>
+    <form #registration="ngForm" (ngSubmit)="adminReqistration(registration.value)">
+        <!-- <label for="name">Name:</label> <input type="text" name="name" ngModel required />
+        <br>
+        <label for="email">Email:</label> <input type="text" name="email" ngModel required />
+        <br>
+        <label for="password">Password:</label> <input type="password" name="password" ngModel required />
+        <br>
+        <label for="phone">Phone NO:</label> <input type="text" name="phone" ngModel required />
+        <br> -->
+
+        <div>
+            <mat-form-field class="input-div">
+                <mat-label>Enter your name</mat-label>
+                <input matInput type="text" name="name" placeholder="EX. Admin" ngModel #name="ngModel" required>
+                <mat-error *ngIf="name.errors?.['required']">Name required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="input-div">
+                <mat-label>Enter your email</mat-label>
+                <input matInput type="email" name="email" placeholder="EX. admin@gmail.com" ngModel #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required email>
+                <mat-error  *ngIf="email.errors?.['pattern']" >Enter valide email address</mat-error>
+                <mat-error  *ngIf="email.errors?.['required']" >Email address required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="input-div">
+                <mat-label>Enter your phone no.</mat-label>
+                <input matInput type="text" name="phone" placeholder="EX. 8960455257" ngModel #phone="ngModel" required>
+                <mat-error *ngIf="phone.errors?.['required']">Phone no. required</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="input-div">
+                <mat-label >Enter your password</mat-label>
+                <input matInput type="password" name="password"  ngModel  #password="ngModel" required minlength="6">
+                <mat-error  *ngIf="password.errors?.['minlength']"> Minimum 6 characters required</mat-error>
+                <mat-error  *ngIf="password.errors?.['required']" > Password required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" [disabled]="registration.invalid">Sign Up</button>
+        </div>
+
+
+
+    </form>
+</div>

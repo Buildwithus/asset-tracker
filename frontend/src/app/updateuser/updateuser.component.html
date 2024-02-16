@@ -1,0 +1,82 @@
+<div>
+    <form #updateuser="ngForm" (ngSubmit)="employeeupdate(id.id,updateuser.value)">
+
+        <div class="left-divv">
+            <div>
+                <mat-form-field class="input-div">
+                    <mat-label>Enter First Name</mat-label>
+                    <input matInput type="text" name="firstname" placeholder="Ex. Employee" ngModel #firstname="ngModel"
+                        required [(ngModel)]="userdata.firstname">
+                    <mat-error *ngIf="firstname.errors?.['required']">FirstName field is required</mat-error>
+                </mat-form-field>
+            </div>
+    
+            <div>
+                <mat-form-field class="input-div">
+                    <mat-label>Enter Last Name</mat-label>
+                    <input matInput type="text" name="lastname" placeholder="Ex. Employee" ngModel #lastname="ngModel"
+                        required [(ngModel)]="userdata.lastname">
+                    <mat-error *ngIf="lastname.errors?.['required']">LastName field is required</mat-error>
+                </mat-form-field>
+            </div>
+    
+    
+            <div>
+                <mat-form-field class="input-div">
+                    <mat-label>Enter Address</mat-label>
+                    <input matInput type="text" name="address" placeholder="Ex. Sector-H,153784,Hyderabad,Telangana"
+                        ngModel #address="ngModel" required [(ngModel)]="userdata.address">
+                    <mat-error *ngIf="address.errors?.['required']">Address field is required</mat-error>
+                </mat-form-field>
+            </div>
+    
+    
+            <div>
+                <mat-form-field class="input-div">
+                    <mat-label>Enter Email</mat-label>
+                    <input matInput type="email" name="email" placeholder="Ex. emp@metapointer.com" ngModel
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" required email [(ngModel)]="userdata.email">
+                    <mat-error *ngIf="email.errors?.['required']">Email field is required</mat-error>
+                    <mat-error *ngIf="email.errors?.['pattern']">Enter valid email address</mat-error>
+                </mat-form-field>
+            </div>
+    
+        </div>
+    
+        <div class="right-divv">
+    
+    
+            <div>
+                <mat-form-field class="input-div">
+                    <mat-label>Enter Phone No.</mat-label>
+                    <input matInput type="text" name="phone" placeholder="Ex. 8965321524" ngModel #phone="ngModel"
+                        required [(ngModel)]="userdata.phone">
+                    <mat-error *ngIf="phone.errors?.['required']">Phone No is required</mat-error>
+                </mat-form-field>
+            </div>
+    
+            <div>
+                <mat-form-field class="input-div">
+                    <mat-label>Enter Position</mat-label>
+                    <input matInput type="text" name="position" placeholder="Ex. Intern" ngModel #position="ngModel"
+                        required [(ngModel)]="userdata.position">
+                    <mat-error *ngIf="position.errors?.['required']">Position field is required</mat-error>
+                </mat-form-field>
+            </div>
+    
+    
+            <mat-form-field class="input-div">
+                <mat-label>Gender</mat-label>
+                <mat-select name="gender" required #gender="ngModel" ngModel [(ngModel)]="userdata.gender">
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                    <mat-option value="Other">Other</mat-option>
+                </mat-select>
+                <mat-error *ngIf="gender.errors?.['required']"> Gender field is required</mat-error>
+            </mat-form-field>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" [disabled]="updateuser.invalid">Update Employee</button>
+            </div>
+        </div>
+    </form>
+</div>

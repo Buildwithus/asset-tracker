@@ -1,0 +1,43 @@
+<div class="form-div">
+
+    <div>
+        <div class="divvv">
+            <h1>Personal Details</h1>
+            <div class="left-divv">
+                <p> <b> Name:</b> {{empdata.getempdetails.firstname}} {{empdata.getempdetails.lastname}} </p>
+                <p> <b>Address:</b>{{empdata.getempdetails.address}} </p>
+                <p> <b>Email:</b> {{empdata.getempdetails.email}} </p>
+            </div>
+            <div class="right-divv">
+                <p><b>Phone No:</b> {{empdata.getempdetails.phone}} </p>
+                <p> <b>Position:</b>{{empdata.getempdetails.position}} </p>
+                <p> <b>Gender:</b>{{empdata.getempdetails.gender}} </p>
+            </div>
+        </div>
+      
+        <div class="divvv">
+            <h1>Assets Details</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No.</th>
+                        <th scope="col">Assets Id</th>
+                        <th scope="col">Assets Name</th>
+                        <th scope="col">Assigned Date</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let item of empdata.getassets.assetsid; let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{ item }}</td>
+                        <td>{{ empdata.getassets.assets[i] }}</td>
+                        <td> {{empdata.getassets.dateArray[i] | date:'dd-MM-yyyy hh:mm a'}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
